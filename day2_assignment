@@ -1,0 +1,35 @@
+<script type="text/javascript">
+	//Question 1
+	let needle = 's';
+	let haystack = 'Become a Javascript Pro and learn one of the employer\'s most';
+
+	index = haystack.indexOf(needle);
+	if (-1 < index) {
+		console.log(needle + ' found at index ' + index);
+	}
+
+	// Question 2
+	let minutes = 60
+	console.log(minutes * 60);
+
+	// Question 3
+	let car = ['bmw', 'audi', 'toyota', 'lam'];
+	if(car.indexOf('bmw') !== -1) {
+		console.log('String found in array');
+	}
+
+	// Question 4
+	let car2 = ['bmw', 'audi', 'toyota', 'lam'];
+	for (let i = 0; i < car2.length; i++) {
+		if (car2[i].indexOf('a') != -1) {
+			console.log('element: ' + car2[i]);
+		}
+	}
+
+	// Question 5
+	let car1 = ['bmw', 'audi', 'toyota', 'lam'];
+
+	for (let i = car1.length - 1; i >= 0; i--) {
+		console.log(car[i]);
+	}
+</script>
