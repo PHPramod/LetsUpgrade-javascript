@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+</head>
+<body>
+  <img id="image" src="https://www.zotero.org/static/images/icons/chrome-icon-112.png" alt=""/>
+  <button id="firstButton">First button</button>
+  <button id="secButton">Sec button</button>
+  <button id="thirdButton">Third button</button>
+</body>
+<script>
+	document.getElementById("firstButton").onclick = function() {changeImage("https://www.zotero.org/static/images/icons/chrome-icon-112.png")};
+
+	document.getElementById("secButton").onclick = function() {changeImage("https://www.zotero.org/static/images/icons/edge-old-icon-64%402x.png")};
+
+	document.getElementById("thirdButton").onclick = function() {changeImage("https://www.zotero.org/static/images/icons/opera-icon-112.png")};
+
+	function changeImage(imagePath) {
+		document.getElementById("image").src = imagePath;
+	}
+</script>
+</html>

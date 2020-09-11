@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+</head>
+<body>
+  <input type="text" name="text1" id="text1">
+  <input type="text" name="text2" id="text2" readonly>
+  <button id="copy">Copy Content</button>
+</body>
+<script>
+	document.getElementById("copy").onclick = function() {copyContent()};
+
+	function copyContent() {
+		document.getElementById("text2").value = document.getElementById("text1").value;
+	}
+</script>
+</html>

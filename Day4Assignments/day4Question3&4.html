@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+</head>
+	<body>
+	</body>
+	<script>
+		let persons = [
+			{
+				name: 'Person 1',
+				age: 24,
+				country: 'india',
+				hobbies: [
+					'hobbies 1',
+					'hobbies 11',
+					'hobbies 111',
+					'hobbies 1111',
+				]
+			},
+			{
+				name: 'Person 2',
+				age: 34,
+				country: 'india2',
+				hobbies: [
+					'hobbies 1',
+					'hobbies 11',
+					'hobbies 111',
+					'hobbies 1111',
+				]
+			},
+			{
+				name: 'Person 3',
+				age: 21,
+				country: 'india3',
+				hobbies: [
+					'hobbies 1',
+					'hobbies 11',
+					'hobbies 111',
+					'hobbies 1111',
+				]
+			}
+		];
+
+		function readAllElements() {
+			persons.forEach(function (arrayItem) {
+				console.log(arrayItem);
+			});
+	}
+	readAllElements();
+
+
+	function readAgeLimitElements(age = 30) {
+		persons.forEach(function (arrayItem) {
+			if (age > arrayItem['age']) {
+				console.log(arrayItem);
+			}
+		});
+	}
+	readAgeLimitElements();
+
+
+	function readWithCountryElements(country = 'india') {
+		persons.forEach(function (arrayItem) {
+			if (country == arrayItem['country']) {
+				console.log(arrayItem);
+			}
+		});
+	}
+	readWithCountryElements();
+
+</script>
+</html>
