@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+  <body>
+  <div class="container">
+    <h2>Employees Data</h2>
+    <table class="table">    
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+          <th>Salary</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="employeesData">
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="container">
+    <h2>Bus Management</h2>
+    <p>Add Bus</p>
+    <form>
+      <div class="row">
+        <div class="col-xs-2">
+          <input type="text" class="form-control" placeholder="Name" name="name">
+        </div>
+        <div class="col-xs-2">
+          <input type="text" class="form-control" placeholder="Source" name="source">
+        </div>
+        <div class="col-xs-2">
+          <input type="text" class="form-control" placeholder="Destination" name="destination">
+        </div>
+        <div class="col-xs-2">
+          <input type="text" class="form-control" placeholder="Number" name="number">
+        </div>
+        <div class="col-xs-2">
+          <input type="text" class="form-control" placeholder="Passenger capacity" name="passengerCapacity">
+        </div>
+        <div class="col-xs-2">
+          <button class="primary-btn" onclick="add()">Add</button> 
+        </div>
+      </div>
+    </form>
+    <table class="table">    
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>s</th>
+          <th>d</th>
+          <th>num</th>
+          <th>passenger</th>
+        </tr>
+      </thead>
+      <tbody id="busData">
+      </tbody>
+    </table>
+  </div>
+  <script type="text/javascript">
+    let employees = [
+      {
+        name: 'Alan',
+        age: 30,
+        city: 'abc',
+        salary: 1000
+      },
+      {
+        name: 'Alan2',
+        age: 30,
+        city: 'abc789',
+        salary: 10000
+      },
+      {
+        name: 'Alan3',
+        age: 30,
+        city: 'abc456',
+        salary: 10000
+      },
+      {
+        name: 'Alan4',
+        age: 30,
+        city: 'abc123',
+        salary: 10000
+      },
+      {
+        name: 'Alan5',
+        age: 30,
+        city: 'abc1234',
+        salary: 10001
+      },
+    ];
+
+    let newRow = '';
+
+    employees.forEach(function (item) {
+          newRow += '<tr><td>' + item.name + '</td><td>' + item.age + '</td><td>' + item.city + '</td><td>' + item.salary + '</td><td><button onclick="deleteRow(this)">DELETE</button></td></tr>';
+
+    });
+     document.getElementById('employeesData').innerHTML = newRow;
+
+     function deleteRow(element) {
+        var row = element.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+     }
+  </script>
+  </body>
+</html>

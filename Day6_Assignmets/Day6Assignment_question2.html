@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Bus Management</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+  <body>
+    <div class="container">
+      <h2>Bus Management</h2>
+      <p>Add Bus</p>
+      <form>
+        <div class="row">
+          <div class="col-xs-2">
+            <input type="text" class="form-control" placeholder="Name" id="name" name="name">
+          </div>
+          <div class="col-xs-2">
+            <input type="text" class="form-control" placeholder="Source" id="source" name="source">
+          </div>
+          <div class="col-xs-2">
+            <input type="text" class="form-control" placeholder="Destination" id="destination" name="destination">
+          </div>
+          <div class="col-xs-2">
+            <input type="text" class="form-control" placeholder="Number" id="number" name="number">
+          </div>
+          <div class="col-xs-2">
+            <input type="text" class="form-control" placeholder="Passenger capacity" id="passengerCapacity" name="passengerCapacity">
+          </div>
+          <div class="col-xs-2">
+            <button type="button" class="primary-btn" onclick="addBus()">Add</button> 
+          </div>
+        </div>
+      </form>
+      <br>
+      <div class="row">
+        <div class="col-xs-2">
+          <input type="text" class="form-control"
+            placeholder="search by source and destination" 
+            id="searchString" onkeyup="searchBus()">
+        </div>
+      </div>
+      <table class="table">    
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Number</th>
+            <th>Passenger</th>
+          </tr>
+        </thead>
+        <tbody id="busData">
+        </tbody>
+      </table>
+    </div>
+    <script type="text/javascript">
+        let savedBus = JSON.parse(localStorage.getItem('buses')) || [];
+        showBusses(savedBus);
+
+        function addBus() {
+          savedBus.push({
+            name: document.getElementById("name").value,
+            source: document.getElementById("source").value,
+            destination: document.getElementById("destination").value,
+            number: document.getElementById("number").value,
+            passengerCapacity: document.getElementById("passengerCapacity").value
+          });
+          showBusses(savedBus);
+          localStorage.setItem("buses", JSON.stringify(savedBus));
+        }
+
+        function showBusses(busSet) {
+          let newRow = '';
+
+          busSet.forEach(function (item) {
+            newRow += `<tr>
+                          <td>${item.name}</td>
+                          <td>${item.source}</td>
+                          <td>${item.destination}</td>
+                          <td>${item.number}</td>
+                          <td>${item.passengerCapacity}</td>
+                          </tr>`;
+          });
+
+          document.getElementById('busData').innerHTML = newRow;
+        }
+
+        function searchBus() {
+          var searchBy = document.getElementById('searchString').value;
+          let savedBus = JSON.parse(localStorage.getItem('buses')) || [];
+
+          let result = savedBus.filter(function(bus) {
+            if (bus.source.indexOf(searchBy) != -1) {
+              return bus;
+            }
+          });
+
+          showBusses(result)
+        }
+
+    </script>
+  </body>
+</html>
